@@ -1,0 +1,100 @@
+{
+  "games": [
+    {
+      "id": "350180",
+      "tag": "TAB",
+      "name": "Thorn and Ballons",
+      "promocodes": [
+        {
+          "code": "TG-SUB-1000",
+          "rewards": [
+            {
+              "type": "money",
+              "amount": 1000
+            },
+            {
+              "type": "hint",
+              "amount": 5
+            },
+            {
+              "type": "magnet",
+              "amount": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "410291",
+      "tag": "POP",
+      "name": "Thorn and Ballons - POP",
+      "promocodes": [
+        {
+          "code": "TG-SUB-1055",
+          "rewards": [
+            {
+              "type": "money",
+              "amount": 1000
+            },
+            {
+              "type": "hint",
+              "amount": 5
+            },
+            {
+              "type": "magnet",
+              "amount": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "379654",
+      "tag": "DOP2",
+      "name": "DOP Eraser 2",
+      "promocodes": [
+        {
+          "code": "TG-SUB-0515",
+          "rewards": [
+            {
+              "type": "money",
+              "amount": 500
+            },
+            {
+              "type": "hint",
+              "amount": 5
+            },
+            {
+              "type": "skin",
+              "value": "Frog"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "420952",
+      "tag": "DOP2N",
+      "name": "DOP 2 Delete One Part",
+      "promocodes": [
+        {
+          "code": "TG-SUB-2515",
+          "rewards": [
+            {
+              "type": "money",
+              "amount": 500
+            },
+            {
+              "type": "hint",
+              "amount": 5
+            },
+            {
+              "type": "skin",
+              "value": "Frog"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
