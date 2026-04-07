@@ -2,67 +2,45 @@
 <html lang="en">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta http-equiv="pragma" content="no-cache"/>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name ="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta charset="utf-8"/>
 
-        <title>Rocket League 2D - Fullscreen</title>
+        <title>Rocket League 2D - Ultra Wide</title>
 
         <style>
-            body {
-              background: #000000; /* Dark background to match the game */
-              color:#cccccc;
-              margin: 0px;
-              padding: 0px;
-              border: 0px;
-              
-              /* Centering logic */
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              min-height: 100vh;
-              width: 100vw;
-              overflow: hidden; /* Removes scrollbars */
+            html, body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+            }
+
+            #gm4html5_div_id {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100vw;
+                height: 100vh;
             }
 
             canvas {
-              image-rendering: pixelated; /* Keeps pixel art sharp when scaled up */
-              -webkit-interpolation-mode: nearest-neighbor;
-              -ms-touch-action: none;
-              margin: 0px;
-              padding: 0px;
-              border: 0px;
-              display: block;
-
-              /* Scaling logic: make the game bigger but stay within screen bounds */
-              max-width: 100%;
-              max-height: 100%;
-              width: auto;
-              height: auto;
-              
-              /* Optional: Add a subtle shadow to make the game pop */
-              box-shadow: 0 0 20px rgba(0,0,0,0.5); 
-            }
-
-            div.gm4html5_div_class {
-              margin: 0px;
-              padding: 0px;
-              border: 0px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-
-            /* Fullscreen API support */
-            :-webkit-full-screen #canvas {
-                 width: 100%;
-                 height: 100%;
-            }
-            :-webkit-full-screen {
-               width: 100%;
-               height: 100%;
+                /* This is the magic part */
+                width: 95vw !important;  /* Fills 95% of screen width */
+                height: auto !important; /* Keeps the ratio so it doesn't look squished */
+                
+                /* If the height is still too small, we force it larger */
+                max-height: 90vh; 
+                
+                image-rendering: pixelated;
+                -webkit-interpolation-mode: nearest-neighbor;
+                box-shadow: 0 0 50px rgba(0,0,0,1);
+                border: 1px solid #333;
             }
         </style>
     </head>
