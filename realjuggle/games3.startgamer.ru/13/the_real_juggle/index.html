@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>The Real Juggle</title>
+    <style>
+        /* Оверлей на весь экран поверх контента */
+        #countdown-overlay {
+            position: fixed;
+            inset: 0;                    /* top/right/bottom/left: 0 */
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 999999;             /* поверх всего */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: all;
+            opacity: 1;
+            transition: opacity 300ms ease, visibility 300ms linear 300ms;
+        }
+        /* Скрытие после окончания */
+        #countdown-overlay.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        /* Цифра по центру, адаптивный размер */
+        #countdown {
+            color: #fff;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+            font-weight: 800;
+            line-height: 1;
+            user-select: none;
+            font-variant-numeric: tabular-nums;
+            text-align: center;
+            /* Ограничим размер: минимум 48px, максимум 240px, обычно ~20vw */
+            font-size: clamp(48px, 20vw, 240px);
+            text-shadow: 0 2px 12px rgba(0,0,0,.35);
+        }
+
+        /* Уважение к reduce-motion */
+        @media (prefers-reduced-motion: reduce) {
+            #countdown-overlay { transition: none; }
+        }
+    </style>
+    <script>
+        window.config = {
+            loader: 'unity-2020',
+            debug: false,
+            maxRatio: 24 / 9,
+            minRatio: 9 / 24,
+
+            title: 'The Real Juggle',
+            thumbnail: 'thumb.jpg',
+            numScreenshots:  4 ,
+
+            unityVersion: '2021.3.45f1',
+            unityWebglBuildUrl: '',
+
+            fileSize:  9 ,
+            cachedDecompressedFileSizes: {
+                '36c69a970bbbf468f4a412b485f7c710.loader.js':  19122 ,
+                '5da53c56fa2567dd50709d86f8655442.data.br':  3723976 ,
+                '7809fcb74efd9c055faa95fd81554e17.framework.js.br':  87542 ,
+                'b1e75034e0c5a570a8e685cb5e5974f7.wasm.br':  5850570 ,
+            },
+            "metadata": {"poki_template_version":1,"background_color":"#000000","code_filename":"b1e75034e0c5a570a8e685cb5e5974f7.wasm.br","company_name":"SP Software Productions","data_filename":"5da53c56fa2567dd50709d86f8655442.data.br","development_player":"false","framework_filename":"7809fcb74efd9c055faa95fd81554e17.framework.js.br","height":"600","loader_filename":"36c69a970bbbf468f4a412b485f7c710.loader.js","product_name":"The Real Juggle","product_version":"1.11.0","splash_screen_style":"Dark","unity_version":"2021.3.45f1","use_data_caching":"true","use_threads":"false","use_wasm":"true","use_webgl_1_0":"false","use_webgl_2_0":"true","width":"960"}
+        };
+    </script>
+    <!-- will be copied to the resulting head //-->
+</head>
+<body>
+<script src="the-real-juggle.js"></script>
+<!-- Оверлей таймера -->
+<div style="display: none" id="countdown-overlay" role="dialog" aria-live="assertive" aria-label="Таймер обратного отсчёта">
+    <div id="countdown" aria-atomic="true">5</div>
+</div>
+
+<script>
+    // Простой обратный отсчёт 5 → 0 с последующим скрытием оверлея
+    function startCountdown(seconds = 5) {
+        const overlay = document.getElementById('countdown-overlay');
+        const counter = document.getElementById('countdown');
+        overlay.classList.remove('hide');
+        overlay.style.display = 'flex';
+        let value = seconds;
+
+        // Показать начальное значение
+        counter.textContent = value;
+
+        const tick = setInterval(() => {
+            value -= 1;
+
+            if (value >= 1) {
+                counter.textContent = value;
+            }
+
+            if (value <= 1) {
+                clearInterval(tick);
+                // Небольшая пауза на «0», затем плавно убираем оверлей
+                setTimeout(() => {
+                    overlay.classList.add('hide');
+                    overlay.setAttribute('aria-hidden', 'true');
+                    overlay.addEventListener('transitionend', () => {
+                        // overlay.remove(), { once: true }
+                        overlay.style.display = 'none';
+                    });
+                }, 900);
+            }
+        }, 1000);
+    };
+</script>
+<!-- will be copied to the resulting body //-->
+<!-- will also be copied to the resulting body //-->
+<script src="https://games3.startgamer.ru/includes/stat.js?9"></script></body>
+</html>
