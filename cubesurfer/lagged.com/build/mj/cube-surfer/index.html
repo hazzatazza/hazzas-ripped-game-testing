@@ -1,0 +1,1430 @@
+<html>
+<head><script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push(i)})
+(window,'AW-1055364430','google_tags_first_party');</script><script async src="/925q/"></script>
+			<script>
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+				gtag('set', 'developer_id.dYzg1YT', true);
+				gtag('config', 'AW-1055364430');
+			</script>
+			
+<!--Meta stuff-->
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+<title>Cube Rush</title>
+<link rel="canonical" href="https://lagged.com/en/g/cube-rush" />
+<script type="8f33b4ffb033fdfa21c006fe-text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+<script src="https://lagged.com/api/v2/lagged_tps-backup-before-dfp.js" type="8f33b4ffb033fdfa21c006fe-text/javascript"></script>
+<style>
+    * {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        font-weight: 700;
+        outline: none;
+        user-select: none;
+    }
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+    #loading {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 100;
+        background-color: #4153A5;
+        text-shadow:         /* create a black outline */
+        -1px -1px 0 #000,
+         0   -1px 0 #000,
+         1px -1px 0 #000,
+         1px  0   0 #000,
+         1px  1px 0 #000,
+         0    1px 0 #000,
+        -1px  1px 0 #000,
+        -1px  0   0 #000;
+
+    }
+    #loading>div {
+        margin-top: 30vh;
+    }
+    .progress {
+        margin-top: 1vh;
+        display: inline-block;
+        border-radius: 10vw;
+        width: 50vw;
+        height: 1.5vw;
+        background-color: #2B292A;
+    }
+    #progressbar {
+        width: 0;
+        border-radius: 10vw;
+        height: 1.5vw;
+        background: rgb(253,105,41);
+        background: -moz-linear-gradient(90deg, rgba(253,105,41,1) 19%, rgba(244,192,41,1) 100%);
+        background: -webkit-linear-gradient(90deg, rgba(253,105,41,1) 19%, rgba(244,192,41,1) 100%);
+        background: linear-gradient(90deg, rgba(253,105,41,1) 19%, rgba(244,192,41,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fd6929",endColorstr="#f4c029",GradientType=1);
+    }
+    #lagged {
+        margin-bottom: 10vh;
+        display: inline-block;
+        width: 30vh;
+        height: 30vh;
+        background-image: url(Images/lagged.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+    }
+    #c {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    #menuUI {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        visibility: hidden;
+    }
+    #title {
+        display: inline-block;
+        width: 250px;
+        height: 250px;
+        margin-top: 30px;
+        user-select: none;
+        background-image: url(Images/Title.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+    }
+    #menuBestScore {
+        display: inline-block;
+        color: white;
+        margin-top: 0;
+        font-size: 60px;
+        text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+    }
+    #btnStart {
+        display: inline-block;
+        color: white;
+        margin-top: 10%;
+        font-size: 40px;
+        text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+        line-height: 70px;
+        width: 240px;
+        height: 100px;
+        background-image: url(Images/btnBG.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+    }
+    #gameUI {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        visibility: hidden;
+    }
+    #score {
+        display: inline-block;
+        color: white;
+        margin-top: 30px;
+        font-size: 70px;
+        text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+    }
+    #spinCounter {
+        display: inline-block;
+        margin-top: 20px;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 5px solid rgba(255,255,255,1);
+        text-align: center;
+        color: white;
+        font-size: 300%;
+        padding-top: 6px;
+        visibility: hidden;
+        text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+    }
+    #extraScore {
+        color: white;
+        font-size: 300%;
+        margin-top: -80px;
+        visibility: hidden;
+        text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+    }
+    #reviveUI {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        visibility: hidden;
+        background-color: rgba(0,0,0,0.5);
+    }
+    #reviveCooldown {
+        display: inline-block;
+        width: 250px;
+        height: 250px;
+        margin-top: 30vh;
+    }
+    #btnSkip {
+        display: inline-block;
+        width: 20vh;
+        height: 10%;
+        margin-top: 15vh;
+        font-size: 3vh;
+        line-height: 5.5vh;
+        color: white;
+        background-image: url(Images/btnBG.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+        text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+    }
+    #btnRevive {
+        display: inline-block;
+        width: 23vh;
+        height: 10%;
+        margin-top: 42vh;
+        color: white;
+        font-size: 4vh;
+        line-height: 7vh;
+        background-image: url(Images/btnRevive.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+        text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.6);
+        animation: pulse 0.7s ease infinite;
+    }
+    #gameOverUI {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        visibility: hidden;
+        background-color: rgba(0,0,0,0.5);
+    }
+    #goScore{
+        display: inline-block;
+        color: white;
+        margin-top: 0%;
+        font-size: 80px;
+        text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.6);
+    }
+    #bestScore{
+        display: inline-block;
+        color: yellow;
+        margin-top: 0%;
+        font-size: 50px;
+        text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.6);
+    }
+    #moreGames {
+        display: inline-block;
+        width: 300px;
+        height: 300px;
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+        margin-top: 1.5%;
+    }
+    #moreGames h3{float:left;clear:both;width:100%;line-height:16px;height:16px;font-size:16px;font-weight:600;padding-top:3px}
+    .thumbWrapper{overflow:hidden;position:relative;background-color:#a5a5a5;box-shadow:0 0 4px 0 rgba(0,0,0,.5);margin:3% 0 0 5%;width:43%;padding-bottom:43%;border-radius:5px}.thumbWrapper div{top:0;left:0;right:0;bottom:0;overflow:hidden;border-radius:5px}.thumbWrapper a{top:0;left:0;bottom:0;right:0;z-index:200;text-indent:-99999px}.thumbWrapper img{width:100%;height:100%;border-radius:2px}.thumbWrapper span.thumbname{position:absolute;transition:bottom .6s ease;font-size:15px;font-weight:700;letter-spacing:1px;width:100%;bottom:-125%;left:0;height:auto;min-height:18px;line-height:20px;padding:7px 0 4px;text-align:center;text-transform:uppercase;background-color:rgba(42,100,144,.8);color:#fff;border-bottom-left-radius:2px;border-bottom-right-radius:2px}.thumbWrapper:hover span{display:block}
+    #btnRestart{
+        display: inline-block;
+        width: 20vh;
+        height: 10%;
+        margin-top: 2vh;
+        font-size: 3vh;
+        line-height: 5.5vh;
+        color: white;
+        background-image: url(Images/btnBG.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+        text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+    }
+    #btnMenu{
+        display: inline-block;
+        width: 20vh;
+        height: 10%;
+
+        font-size: 3vh;
+        line-height: 5.5vh;
+        color: white;
+        background-image: url(Images/btnBG.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+        text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.6);
+    }
+    .button {
+        transition: all .1s;
+        cursor: pointer;
+        user-select: none;
+    }
+    .button:hover {
+        transform: scale(1.1);
+    }
+    #instruction {
+        visibility: hidden;
+    }
+    #bar {
+        position: fixed;
+        width: 20%;
+        height: 10%;
+        bottom: 12%;
+        left: 40%;
+
+        background-image: url(Images/slide.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+    }
+    #hand {
+        width: 40%;
+        height: 10%;
+        position: fixed;
+        bottom: 10%;
+        left: 50%;
+
+        background-image: url(Images/hand.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+        animation: leftRightAnim 2s linear infinite;
+    }
+    @keyframes leftRightAnim {
+        33% {transform: translateX(20%);}
+        66% {transform: translateX(-20%);}
+    }
+    @media only screen and (max-width: 700px) {
+        #bar {
+            width: 40%;
+            height: 15%;
+            bottom: 1%;
+            left: 32%;
+        }
+        #hand {
+            height: 5%;
+        }
+        #loading {
+            font-size: 20px;
+        }
+        .progress {
+            width: 70vw;
+        }
+        #moreGames {
+
+            width: 150px;
+            height: 150px;
+
+        }
+        .thumbWrapper{display:none}
+        .thumbWrapper.firstgame{    display: block;
+    width: 84%;
+    padding-bottom: 84%;
+    margin-left: 7%;}
+    }
+    #btnSound {
+        position: fixed;
+        left: 0.5%;
+        top: 1%;
+        width: 8%;
+        height: 8%;
+
+        background-image: url(Images/btnSound.png);
+        background-repeat: no-repeat;
+        background-size:contain;
+    }
+    #rotateDeviceBG {
+        background-color: rgba(0,0,0,1);
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        visibility: hidden;
+    }
+    .phone {
+        position: fixed;
+        height: 100px;
+        width: 200px;
+        border: 4px solid white;
+        border-radius: 10px;
+        animation: rotate 1.5s ease-in-out infinite alternate;
+        left: 38%;
+        top: 25%;
+        /* display: none; */
+    }
+
+    .message {
+        position: fixed;
+        left: 40%;
+      color: white;
+      font-size: 1em;
+      bottom: 15%;
+      /* display: none; */
+    }
+
+    @keyframes rotate {
+      0% {
+            transform: rotate(0deg)
+        }
+        50% {
+            transform: rotate(-90deg)
+        }
+        100% {
+            transform: rotate(-90deg)
+        }
+    }
+
+    @media only screen and (max-device-width: 812px) and (orientation: landscape) {
+      .phone, .message {
+        display: block;
+      }
+    }
+
+</style>
+
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r113/three.min.js" type="8f33b4ffb033fdfa21c006fe-text/javascript"></script>
+<script src="./Libs/FBXLoader.js" type="8f33b4ffb033fdfa21c006fe-text/javascript"></script>
+<script src="./Libs/inflate.min.js" type="8f33b4ffb033fdfa21c006fe-text/javascript"></script>
+<script src="./Libs/SkeletonUtils.js" type="8f33b4ffb033fdfa21c006fe-text/javascript"></script>
+<script src="./Libs/Tween.js" type="8f33b4ffb033fdfa21c006fe-text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/progressbar.js/1.1.0/progressbar.min.js" type="8f33b4ffb033fdfa21c006fe-text/javascript"></script>
+
+<div id="loading">
+    <div>
+        <div id="lagged"></div>
+        <div id="progressText">0%</div>
+        <div class="progress"><div id="progressbar"></div></div>
+        <div>Loading...</div>
+    </div>
+</div>
+
+<canvas id="c"></canvas>
+
+<div id="menuUI">
+    <div style="display: inline-block; color: white; margin-top: 20px; font-size:  30px; text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);" >Best Score</div><br>
+    <div id="menuBestScore">100</div><br>
+    <div id="title"></div><br>
+    <div id="btnStart" onclick="if (!window.__cfRLUnblockHandlers) return false; setUpGame()" class="button" data-cf-modified-8f33b4ffb033fdfa21c006fe-="">START</div>
+</div>
+
+<div id="gameUI">
+    <div id="score">0</div><br>
+    <div id="nitroContainer"><div id="nitroBar"></div></div><br>
+    <div id="spinCounter" class="animate__faster">1</div>
+    <div id="extraScore" class="animate__faster">+50</div>
+</div>
+
+<div id="reviveUI">
+    <div id="reviveCooldown"></div><br>
+    <div style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; text-align: center;">
+        <div id="btnRevive" onclick="if (!window.__cfRLUnblockHandlers) return false; btnRevive()" class="button" data-cf-modified-8f33b4ffb033fdfa21c006fe-=""></div><br>
+        <div id="btnSkip" onclick="if (!window.__cfRLUnblockHandlers) return false; btnSkip()" class="button" data-cf-modified-8f33b4ffb033fdfa21c006fe-="">SKIP</div>
+    </div>
+</div>
+
+<div id="gameOverUI">
+    <div style="display: inline-block; color: white; margin-top: 50px; font-size: 30px; text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.6);" >Your Score</div><br>
+    <div id="goScore" >100</div><br>
+    <div style="display: inline-block; color: yellow; margin-top: 10px; font-size: 20px; text-shadow: 0px 4px 0px rgba(0, 0, 0, 0.6);" >Best Score</div><br>
+    <div id="bestScore">100</div><br>
+    <div id="moreGames"><h3>More Games</h3>
+      <div class="thumbWrapper newboxshadow firstgame"><div>
+      <a href="https://lagged.com/more-games/2712" target="_blank">Ragdoll Swing</a>
+      <img src="https://imgs2.dab3games.com/ragdoll-swing-game.png" width="200" height="200" alt="game" />
+      <span class="thumbname"><span>Ragdoll Swing</span></span>
+      </div></div>
+      <div class="thumbWrapper newboxshadow"><div>
+      <a href="https://lagged.com/more-games/2761" target="_blank" title="game">Baldi 2</a>
+      <img src="https://imgs2.dab3games.com/baldi-2-game.png" width="200" height="200" alt="game" />
+      <span class="thumbname"><span>Baldi 2</span></span>
+      </div></div>
+
+    <div class="thumbWrapper newboxshadow"><div>
+    <a href="https://lagged.com/more-games/2723" target="_blank" title="game">Moto Rush</a>
+    <img src="https://imgs2.dab3games.com/moto-rush-game.png" width="200" height="200" alt="game" />
+    <span class="thumbname"><span>Moto Rus</span></span>
+    </div></div>
+
+    <div class="thumbWrapper newboxshadow"><div>
+    <a href="https://lagged.com/more-games/2701" target="_blank">Stencil Art</a>
+    <img src="https://imgs2.dab3games.com/stencil-art-game.png" width="200" height="200" alt="game" />
+    <span class="thumbname"><span>Stencil Art</span></span>
+    </div></div>
+    </div><br>
+    <div id="btnRestart" onclick="if (!window.__cfRLUnblockHandlers) return false; btnRestart()" class="button" data-cf-modified-8f33b4ffb033fdfa21c006fe-="">REPLAY</div><br>
+    <div id="btnMenu" onclick="if (!window.__cfRLUnblockHandlers) return false; btnMenu()" class="button" data-cf-modified-8f33b4ffb033fdfa21c006fe-="">MENU</div>
+</div>
+
+<div id="instruction">
+    <div id="bar"></div>
+    <div id="hand"></div>
+</div>
+
+<div id="btnSound" class="button" onclick="if (!window.__cfRLUnblockHandlers) return false; btnSound()" data-cf-modified-8f33b4ffb033fdfa21c006fe-=""></div>
+
+<div id="rotateDeviceBG">
+    <div class="phone">
+    </div>
+    <div class="message">
+      Please rotate your device!
+    </div>
+</div>
+
+<script type="8f33b4ffb033fdfa21c006fe-text/javascript">
+// GLOBAL VAR
+var lbestscore=0;
+var adcnt=0;
+var scene = null;
+var camera = null;
+var renderer = null;
+var clock = new THREE.Clock();
+//const gui = new dat.GUI();
+var player = null;
+var score = 0;
+var state = "menu";
+var bestScore = parseInt(localStorage.getItem("bestScore"));
+if (!bestScore > 0)
+    bestScore = 0;
+var gameOver = false;
+var collisionArray = [];
+var spawner = null;
+var defaultSpeed = 800;
+var speed = defaultSpeed;
+var possibleHeight = 0;
+var buildingsArray = [];
+var gameOverTimeout;
+var circleLoader;
+var respawnUsed = false;
+var score = 0;
+var bestScore = parseInt(localStorage.getItem("totalGames"));
+if (!bestScore > 0)
+    bestScore = 0;
+var removedCubes = [];
+var bloodFXArr = [];
+var spriteArray = [];
+var trailArray = [];
+var onMobile = false;
+
+const BaseModel = {
+    cube: {url: 'Models/Cube.fbx'},
+    building: {url: 'Models/Building.fbx'},
+    building2: {url: 'Models/Building2.fbx'},
+    character: {url: 'Models/Character.fbx'},
+}
+const Anims = {
+    idle: {url: 'Models/SkateboardingAnim.fbx'},
+    fall: {url: 'Models/FallAnim.fbx'},
+}
+const Textures = {
+    explosion: {url: 'Images/explosion.png'},
+    plusOne: {url: 'Images/plusOne.png'},
+    trail: {url: 'Images/trail.png'},
+}
+const Sound = {
+    button: {url: 'Sound/Button.mp3'},
+    pickup: {url: 'Sound/Pickup.mp3'},
+    gameOver: {url: 'Sound/GameOver.mp3'},
+}
+
+
+// DOM elements
+const CANVAS = document.querySelector('#c');
+const PROGRESS_TEXT = document.querySelector('#progressText');
+const GAME_UI = document.querySelector('#gameUI');
+const SCORE = document.querySelector('#score');
+const SPIN_COUNTER = document.querySelector('#spinCounter');
+const EXTRA_SCORE = document.querySelector('#extraScore');
+const GAME_OVER_UI = document.querySelector('#gameOverUI');
+const GO_SCORE = document.querySelector('#goScore');
+const GO_BESTSCORE = document.querySelector('#bestScore');
+const REVIVE_UI = document.querySelector('#reviveUI');
+const MENU_UI = document.querySelector('#menuUI');
+const MENU_BESTSCORE = document.querySelector('#menuBestScore');
+const INSTRUCTION = document.querySelector('#instruction');
+const BTN_SOUND = document.querySelector('#btnSound');
+const ROTATE_MSG  = document.querySelector('#rotateDeviceBG');
+
+function preload() {
+    const progressbarElem = document.querySelector('#progressbar');
+    let manager = new THREE.LoadingManager();
+    manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+        console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+    };
+    manager.onLoad = function ( ) {
+        console.log( 'Loading complete!');
+        init();
+        // hide the loading bar
+        const loadingElem = document.querySelector('#loading');
+        loadingElem.style.display = 'none';
+    };
+    manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+        console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+        progressbarElem.style.width = `${itemsLoaded / itemsTotal * 100 | 0}%`;
+        PROGRESS_TEXT.innerHTML = `${itemsLoaded / itemsTotal * 100 | 0}%`;
+    };
+    manager.onError = function ( url ) {
+        console.log( 'There was an error loading ' + url );
+    };
+
+    var loader = new THREE.FBXLoader( manager );
+    // load base character model
+    for (const model of Object.values(BaseModel)) {
+        loader.load( model.url, function ( fbx ) {
+            model.fbx = fbx;
+            model.fbx.scale.set(0.26,0.26,0.26);
+        });
+    }
+    // load anims
+    for (const model of Object.values(Anims)) {
+        loader.load( model.url, function ( fbx ) {
+            //model.fbx = fbx;
+            model.animation = fbx.animations[ 0 ];
+        });
+    }
+    // load textures
+    var loaderTex = new THREE.TextureLoader(manager);
+    for (const img of Object.values(Textures)) {
+        loaderTex.load( img.url, function(texture) {
+            texture.encoding = THREE.sRGBEncoding;
+            img.texture = texture;
+        });
+    }
+    // load audio
+    Sound.listener = new THREE.AudioListener();
+    const audioLoader = new THREE.AudioLoader( manager );
+    for (const key of Object.values(Sound)) {
+        audioLoader.load( key.url, function(buffer) {
+            key.sound = new THREE.Audio( Sound.listener );
+            key.sound.setBuffer( buffer );
+            key.sound.setVolume( 1 );
+        });
+    }
+}
+
+function init(){
+  LaggedAPI.init('cuber_rushg_ints','lagdevaF3001');
+    if (is_touch_device()){
+        onMobile = true;
+    }
+    MENU_UI.style.visibility = "visible";
+
+    renderer = new THREE.WebGLRenderer({canvas: CANVAS, antialias: true,});
+    renderer.setPixelRatio( 0.6 );
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    renderer.shadowMapEnabled = true;
+    //renderer.shadowMap.autoUpdate = false;
+
+    camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 14000 );
+    camera.position.set(-300, 700, -1000);
+    camera.lookAt(0,0,600);
+    camera.add( Sound.listener );
+
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color( 0x94D3F4 ).convertSRGBToLinear();
+
+    // fog
+    const color = new THREE.Color( 0x94D3F4 ).convertSRGBToLinear();;
+    const near = 3000;
+    const far = 5000;
+    scene.fog = new THREE.Fog(color, near, far);
+
+    setUpMenu();
+
+    window.addEventListener( 'resize', onWindowResize, false );
+
+    MENU_BESTSCORE.innerHTML = Math.round(bestScore);
+    animate();
+}
+
+function setUpMenu() {
+
+    // shadows
+    let shadowLight = new THREE.DirectionalLight(0x00c1f7, 1);
+    shadowLight.position.set(1000, 500, -100);
+    shadowLight.castShadow = true;
+    shadowLight.shadow.camera.left = -3000;
+    shadowLight.shadow.camera.right = 3000;
+    shadowLight.shadow.camera.top = 2000;
+    shadowLight.shadow.camera.bottom = -2000;
+    shadowLight.shadow.camera.near = 1;
+    shadowLight.shadow.camera.far = 6000;
+    shadowLight.shadow.mapSize.width = 512; // default is 512
+    shadowLight.shadow.mapSize.height = 512; // default is 512
+    scene.add(shadowLight);
+
+    let light = new THREE.HemisphereLight( 0xffffff , 0xffffff, 0.7);
+    light.position.set(0, 1000, 0 );
+    scene.add( light );
+
+    // ground
+    let ground_mesh = new THREE.Mesh( new THREE.BoxBufferGeometry( 300, 100, 6000 ), new THREE.MeshLambertMaterial( { color: 0xd6f6ff} ) );
+    //ground_mesh.castShadow = true;
+	ground_mesh.receiveShadow = true;
+    ground_mesh.position.z = 2000;
+    ground_mesh.position.x += 10;
+    ground_mesh.position.y += 25;
+    scene.add( ground_mesh );
+
+    // populate with buildings
+    for (let i = 100; i < 5000; i += 200){
+        console.log(i);
+        new Building(i);
+    }
+    player = new Player();
+}
+
+function setUpGame() {
+    Sound.button.sound.play();
+    possibleHeight = 0;
+    gameOver = false;
+    speed = defaultSpeed;
+
+    state = "game";
+    INSTRUCTION.style.visibility = "visible";
+    //player = new Player();
+    spawner = new Spawner();
+
+    MENU_UI.style.visibility = "hidden";
+    GAME_UI.style.visibility = "visible";
+
+    document.addEventListener('touchstart', touchStart, false);
+    document.addEventListener('touchend', touchEnd, false);
+    document.addEventListener('touchmove', touchMoved, false);
+
+    document.addEventListener('mousemove', mouseMoved, false);
+    document.addEventListener('mousedown', mouseDown, false);
+    document.addEventListener('mouseup', mouseUp, false);
+}
+
+function Player() {
+    var self = {
+        model: null,
+        group: null,
+        cubeArray: [],
+        maxX: 130,
+        minX: -117,
+        fallTimer: 61,
+        mixer: null,
+    }
+    self.init = function(){
+        self.group = new THREE.Object3D();
+        scene.add(self.group);
+
+        /*self.model = new THREE.Mesh( new THREE.BoxBufferGeometry( 50, 100, 50 ), new THREE.MeshLambertMaterial( { color: 0x00b3ff} ) );*/
+        self.model = THREE.SkeletonUtils.clone(BaseModel.character.fbx);
+        self.model.traverse(function ( child ) {
+            if ( child instanceof THREE.Mesh ) {
+                const oldMat = child.material;
+                child.castShadow = true;
+				child.receiveShadow = true;
+                child.material = new THREE.MeshLambertMaterial( {  map: oldMat.map, skinning: true});
+            }
+        });
+
+        self.model.scale.set(0.5,0.5,0.5);
+        self.model.position.y += 77; //125
+
+        self.mixer = new THREE.AnimationMixer(self.model);
+        const firstClip = Anims.idle.animation;
+        const SecondClip = Anims.fall.animation;
+        self.idle = self.mixer.clipAction(firstClip);
+        self.fall = self.mixer.clipAction(SecondClip);
+        self.idle.play();
+
+        self.fall.setLoop( THREE.LoopOnce );
+        self.fall.clampWhenFinished = true;
+
+        self.fall._clip.name = "fall";
+        self.mixer.addEventListener( 'finished', function( e ) {
+            if (e.action._clip.name == "fall"){
+                gameOverFunction();
+                console.log("dead");
+            }
+        });
+
+        self.group.add(self.model);
+        self.addCube();
+    }
+    self.addCube = function(){
+        /*let cube = new THREE.Mesh( new THREE.BoxBufferGeometry( 50, 50, 50 ), new THREE.MeshLambertMaterial( { color: 0xfff700} ) );*/
+        let cube = BaseModel.cube.fbx.clone();
+        cube.traverse(function ( child ) {
+            if ( child instanceof THREE.Mesh ) {
+                child.material = new THREE.MeshLambertMaterial( { color: 0xfff700} );
+                child.castShadow = true;
+				child.receiveShadow = true;
+            }
+        });
+
+        cube.position.y += 100;
+        //FX
+        if (score > 1){
+            Sound.pickup.sound.play();
+            let v = new THREE.Vector3(self.group.position.x, 100, self.group.position.z);
+            new BloodParticles(v);
+            self.addCubeFX(v);
+        }
+        for (let i in self.cubeArray){
+            self.cubeArray[i].position.y += 50;
+        }
+        self.model.position.y += 50;
+        self.group.add(cube);
+        self.cubeArray.push(cube);
+        // raycaster
+        cube.raycaster = new THREE.Raycaster();
+        cube.line = null;
+        cube.falling = 0;
+    }
+    self.collisionCheck = function() {
+        if (score < 2) return;
+        for (let i in self.cubeArray){
+            if (self.cubeArray[i].falling <= 0){
+               var dir = new THREE.Vector3(0,0,1);
+                var pos = self.group.position.clone();
+                pos.y = self.cubeArray[i].position.y;
+
+                self.cubeArray[i].raycaster.set(pos,dir);
+                let intersect = self.cubeArray[i].raycaster.intersectObjects(collisionArray);
+                if (intersect.length>0 && intersect[0].distance<100){
+                    let index = collisionArray.indexOf(intersect[0].object);
+                    let object = collisionArray[index];
+                    if (object.add == true){
+                        self.addCube();
+                        scene.remove(object);
+                        scene.remove(object.model);
+                        collisionArray.splice(index,1);
+                    }
+                    else if (object.remove == true){
+                        //self.group.remove(self.cubeArray[i]);
+                        buildingsArray.push(self.cubeArray[i]);
+                        self.cubeArray.splice(i,1);
+                        self.fallTimer = 60;
+                    }
+                }
+            }
+        }
+
+        // if no cube to stand on, play dead animation and gameOver
+        if (self.cubeArray.length < 1 && !gameOver){
+            Sound.gameOver.sound.play();
+            self.mixer.stopAllAction();
+            self.fall.fadeIn(0.1);
+            self.fall.play();
+            gameOver = true;
+            speed = 0;
+            //self.model.position.y = 100;
+            INSTRUCTION.style.visibility = "hidden";
+        }
+    }
+    self.addCubeFX = function(spawnPos) {
+        // exclamation mark
+        let spriteMaterial = new THREE.SpriteMaterial({map:Textures.plusOne.texture});
+        let sprite = new THREE.Sprite(spriteMaterial);
+        sprite.timer = 30;
+        scene.add(sprite);
+        sprite.scale.set(40,40,40);
+        sprite.position.copy(spawnPos);
+        sprite.position.x -= 70;
+        spriteArray.push(sprite);
+    }
+    self.trailFX = function() {
+        //trail fx
+        let mat = new THREE.MeshBasicMaterial({map: Textures.trail.texture, side: THREE.DoubleSide, opacity: 0.3, });
+        let geom = new THREE.PlaneGeometry( 50, 50, 100);
+        let mesh = new THREE.Mesh( geom, mat );
+        mesh.rotation.x = THREE.Math.degToRad(120);
+        mesh.timer = 100;
+        scene.add(mesh);
+        mesh.position.copy(self.group.position);
+        mesh.position.y = 70;
+        mesh.position.z = 0;
+        trailArray.push(mesh);
+    }
+    self.update = function(dt){
+        self.mixer.update(dt);
+        self.collisionCheck();
+
+        for (let i in buildingsArray){
+            buildingsArray[i].position.z -= speed*dt;
+            if (buildingsArray[i].position.z < -500 && buildingsArray[i].building){
+                scene.remove(buildingsArray[i]);
+                buildingsArray.splice(i,1);
+                new Building(5000);
+            }
+        }
+
+        for (let i in trailArray){
+            trailArray[i].position.z -= 300*dt;
+            trailArray[i].timer -= 40*dt;
+            if (trailArray[i].timer < 0){
+                scene.remove(trailArray[i]);
+                trailArray.splice(i,1);
+            }
+        }
+
+        for (let i in collisionArray){
+            collisionArray[i].position.z -= speed*dt;
+            if (collisionArray[i].model){
+                collisionArray[i].model.position.copy(collisionArray[i].position);
+            }
+        }
+        if (self.fallTimer < 61){
+            self.fallTimer -= dt*200;
+        }
+        if (self.fallTimer <= 0 && !gameOver){
+            for (let i in self.cubeArray){
+                if (i == 0)
+                    self.cubeArray[i].position.y = 100;
+                else
+                    self.cubeArray[i].position.y = (50*i)+100;
+            }
+            console.log(self.cubeArray.length)
+            self.model.position.y = (self.cubeArray.length*50)+80;
+            self.fallTimer = 61;
+        }
+
+        if (move.lastX && !gameOver){
+            self.group.position.x -= (move.movementX*5)*dt;
+
+            if (self.group.position.x > self.maxX)
+                self.group.position.x = self.maxX;
+            if (self.group.position.x < self.minX)
+                self.group.position.x = self.minX;
+        }
+
+        // score
+        if (!gameOver && state == "game") {
+            score += 1*dt;
+            SCORE.innerHTML = Math.round(score);
+        }
+        if (score > 4 && INSTRUCTION.style.visibility == "visible"){
+            INSTRUCTION.style.visibility = "hidden";
+        }
+        for (let i in spriteArray){
+            spriteArray[i].position.y += 100*dt;
+            spriteArray[i].timer -= 40*dt;
+            if (spriteArray[i].timer < 0){
+                scene.remove(spriteArray[i]);
+                spriteArray.splice(i,1);
+            }
+        }
+        self.trailFX();
+    }
+    self.init();
+    return self;
+}
+
+function Pickup(){
+    var self = {
+        model: null,
+    }
+    self.init = function(){
+        let cube = new THREE.Mesh( new THREE.BoxBufferGeometry( 70, 50, 50 ), new THREE.MeshBasicMaterial( { color: 0xfff700, visible: false,} ) );
+        self.model = BaseModel.cube.fbx.clone();
+        self.model.traverse(function ( child ) {
+            if ( child instanceof THREE.Mesh ) {
+                child.material = new THREE.MeshLambertMaterial( { color: 0xfff700, side: THREE.DoubleSide} );
+                child.castShadow = true;
+				child.receiveShadow = true;
+            }
+        });
+
+        cube.position.y += 100;
+        cube.position.z = 3000;
+        let randXArray = [120, 60, 0, -60, -120];
+        let randX = rand(0,4)
+        cube.position.x = randXArray[randX];
+
+        cube.model = self.model;
+        scene.add(self.model);
+        scene.add(cube);
+        cube.add = true;
+
+        collisionArray.push(cube);
+        possibleHeight ++;
+    }
+
+    self.init();
+    return self;
+}
+
+function Wall(spawnX, spawnY){
+    var self = {
+        model: null,
+    }
+    self.init = function(){
+        let cube = new THREE.Mesh( new THREE.BoxBufferGeometry( 70, 50, 50 ), new THREE.MeshBasicMaterial( { color: 0xFF4500, visible: false} ) );
+        self.model = BaseModel.cube.fbx.clone();
+        self.model.traverse(function ( child ) {
+            if ( child instanceof THREE.Mesh ) {
+                child.material = new THREE.MeshLambertMaterial( { color: 0xFF4500} );
+                child.castShadow = true;
+				child.receiveShadow = true;
+            }
+        });
+
+        cube.position.y += 100;
+        cube.position.z = 4500;
+        cube.position.x = spawnX;
+        if (spawnY){
+            let spawnYRandom = spawnY;
+            if (spawnY == (possibleHeight-1)){
+                spawnYRandom = rand(0,spawnY);
+            }
+            cube.position.y += (spawnYRandom*55);
+        }
+        cube.model = self.model;
+        scene.add(cube);
+        scene.add(self.model);
+        cube.remove = true;
+        collisionArray.push(cube);
+    }
+
+    self.init();
+    return self;
+}
+
+function Spawner(){
+    var self = {
+        timer: 0,
+        randomTimeToSpawn: rand(1,5),
+        lastSpawn: null,
+    }
+    self.spawn = function(){
+        let type = rand(1,3);
+        if (type == 1 && self.lastSpawn == "pickup"){
+            if (possibleHeight > 0){
+                new Wall(120);
+                new Wall(60);
+                new Wall(0);
+                new Wall(-60);
+                new Wall(-120);
+                if (possibleHeight > 1) {
+                    for (let i = 1; i < possibleHeight; i++){
+                        possibleHeight -= 1;
+                        new Wall(120,i);
+                        new Wall(60,i);
+                        new Wall(0,i);
+                        new Wall(-60,i);
+                        new Wall(-120,i);
+                    }
+                }
+                self.lastSpawn = "wall"
+            }
+            else {
+                type = 2;
+                self.lastSpawn = "pickup"
+            }
+        }
+        if (type == 2){
+            new Pickup();
+            self.lastSpawn = "pickup"
+        }
+        else {
+            new Pickup();
+            self.lastSpawn = "pickup"
+        }
+    }
+    self.update = function(delta){
+        self.timer += 2*delta;
+        if ( self.timer > self.randomTimeToSpawn ){
+            self.spawn();
+            self.timer = 0;
+            self.randomTimeToSpawn = rand(1,5);
+        }
+    }
+    return self;
+}
+
+function Building(spawnZ) {
+    var self = {
+        color: new THREE.Color( 0x0E86DE ).convertSRGBToLinear(),
+    }
+    self.init = function() {
+        let r  = rand(1,2);
+        let rX = rand(1,2);
+        let model = null;
+        if (r == 1) {
+            model = BaseModel.building.fbx.clone();
+            model.traverse(function ( child ) {
+                if ( child instanceof THREE.Mesh ) {
+                    child.material = new THREE.MeshLambertMaterial( { color: self.color } );
+
+                }
+            });
+            model.scale.set(1.2,1.2,1.2);
+        }
+        else {
+            model = BaseModel.building2.fbx.clone();
+            model.traverse(function ( child ) {
+                if ( child instanceof THREE.Mesh ) {
+                    child.material = new THREE.MeshLambertMaterial( { color: self.color } );
+                }
+            });
+            model.scale.set(1.2,1.2,1.2);
+        }
+
+        scene.add(model);
+        if (rX == 1)
+            model.position.x = rand(800,1000);
+        else
+            model.position.x = rand(-200,-400);
+        model.position.y = -400;
+        if (spawnZ)
+            model.position.z = spawnZ;
+        else
+            model.position.z = 3500;
+        model.building = true;
+        buildingsArray.push(model);
+    }
+
+    self.init();
+    return self;
+}
+
+function gameOverFunction() {
+    for(let i in trailArray){
+        trailArray.splice(i,1);
+    }
+
+    state = "menu";
+    console.log("Gameover Function");
+    if (circleLoader){
+        circleLoader.destroy();
+        circleLoader = null;
+    }
+
+    GAME_UI.style.visibility = "hidden";
+
+    if (score > bestScore){
+        bestScore = score;
+    }
+    localStorage.setItem("bestScore",bestScore);
+
+
+    if (!respawnUsed){
+        REVIVE_UI.style.visibility = "visible";
+
+        circleLoader = new ProgressBar.Circle('#reviveCooldown', {
+            strokeWidth: 6,
+            color: '#ffffff',
+            duration: 5000,
+            easing: 'linear',
+            trailColor: '#eee',
+            trailWidth: 1,
+        });
+        circleLoader.animate(1);
+        gameOverTimeout = setTimeout(function(){
+
+            REVIVE_UI.style.visibility = "hidden";
+            GAME_OVER_UI.style.visibility = "visible";
+            GO_SCORE.innerHTML = Math.round(score);
+            GO_BESTSCORE.innerHTML = Math.round(bestScore);
+
+            if(Math.round(score)>lbestscore){
+            lbestscore=Math.round(score);
+            laggedHS(lbestscore);
+            }
+
+        },5000);
+        respawnUsed = true;
+    }else {
+        GAME_OVER_UI.style.visibility = "visible";
+        GO_SCORE.innerHTML = Math.round(score);
+        GO_BESTSCORE.innerHTML = Math.round(bestScore);
+
+        if(Math.round(score)>lbestscore){
+        lbestscore=Math.round(score);
+        laggedHS(lbestscore);
+        }
+    }
+}
+
+var laggedHS=function(score){
+
+parent.saveHS(score,"score");
+
+}
+
+
+function BloodParticles(spawnPos){
+    var self = {
+        particles: [],
+        max: 10,
+        mesh: null,
+        index: null,
+    }
+    self.init = function() {
+        let geo = new THREE.Geometry();
+        for(let i=0; i<self.max; i++) {
+            let particle = {
+                position: new THREE.Vector3(
+                      rand(-20, 20),
+                      rand(-20, 20),
+                      rand(-20, -20)),
+                velocity: new THREE.Vector3(
+                      rand(-3, 3),
+                      5,
+                      rand(-3, 3)),
+                acceleration: new THREE.Vector3(0, -0.5, 0),
+            }
+            self.particles.push(particle)
+            geo.vertices.push(particle.position)
+        }
+        var mat = new THREE.PointsMaterial({color:0xFF3300,size: 100, map: Textures.explosion.texture, opacity: 0.4, transparent: true, })
+        self.mesh = new THREE.Points(geo,mat)
+        self.mesh.position.copy(spawnPos);
+        scene.add(self.mesh);
+    }
+    self.update = function(){
+        self.particles.forEach(p => {
+            p.velocity.add(p.acceleration);
+            p.position.add(p.velocity);
+            self.mesh.material.size -= 0.35;
+        })
+        self.mesh.geometry.verticesNeedUpdate = true;
+        if (self.mesh.material.size < 0){
+            scene.remove(self.mesh);
+            for (let i in bloodFXArr){
+                if (bloodFXArr[i].mesh.uuid == self.mesh.uuid)
+                    bloodFXArr.splice(i,1);
+            }
+        }
+    }
+
+    self.init();
+    bloodFXArr.push(self);
+    return self;
+}
+
+
+/*GAMEPLAY LOOP*/
+preload();
+
+function animate(){
+    requestAnimationFrame( animate );
+    var delta = clock.getDelta();
+
+    if (player)
+        player.update(delta);
+    if (spawner)
+        spawner.update(delta);
+    for (let i in bloodFXArr){
+        bloodFXArr[i].update(delta);
+    }
+    showLandscapeMessage();
+
+    renderer.render( scene, camera );
+}
+
+/*MENU-GAMEOVER buttons*/
+function reset() {
+    for( var i = scene.children.length - 1; i >= 0; i--) {
+        obj = scene.children[i];
+        scene.remove(obj);
+    }
+    spawner = null;
+    player = null;
+    collisionArray = [];
+    buildingsArray = [];
+    buildingsArray = [];
+    removedCubes = [];
+    bloodFXArr = [];
+    score = 0;
+    setUpMenu();
+}
+
+function btnRestart() {
+    //Sound.button.sound.play();
+
+    if(typeof prerollStart === 'undefined'||adcnt<40){
+      respawnUsed = false;
+      gameOver = false;
+      speed = defaultSpeed;
+      GAME_OVER_UI.style.visibility = "hidden";
+      reset();
+      setUpGame();
+    }else{
+    LaggedAPI.APIAds.show('interstitial','cube-surfer','cube-surfer-game.png',function(response) {
+    adcnt=-20;
+    respawnUsed = false;
+    gameOver = false;
+    speed = defaultSpeed;
+    GAME_OVER_UI.style.visibility = "hidden";
+      reset();
+      setUpGame();
+    });
+    }
+}
+
+function btnMenu() {
+    //Sound.button.sound.play();
+    speed = defaultSpeed;
+    respawnUsed = false;
+    MENU_UI.style.visibility = "visible";
+    MENU_BESTSCORE.innerHTML = Math.round(bestScore);
+    GAME_OVER_UI.style.visibility = "hidden";
+    if(typeof prerollStart === 'undefined'||adcnt<40){
+    reset();
+    }else{
+    LaggedAPI.APIAds.show('interstitial','cube-surfer','cube-surfer-game.png',function(response) {
+    adcnt=-40;
+    reset();
+    });
+    }
+}
+
+function btnRevive() {
+    //Sound.button.sound.play();
+    clearTimeout(gameOverTimeout);
+
+    if(typeof prerollStart === 'undefined'){
+      REVIVE_UI.style.visibility = "hidden";
+      GAME_OVER_UI.style.visibility = "visible";
+      let oldScore = score;
+      gameOver = false;
+      speed = defaultSpeed;
+      GAME_OVER_UI.style.visibility = "hidden";
+      reset();
+      setUpGame();
+      score = oldScore;
+    }else{
+    LaggedAPI.APIAds.show('interstitial','cube-surfer','cube-surfer-game.png',function(response) {
+    adcnt=0;
+    REVIVE_UI.style.visibility = "hidden";
+    GAME_OVER_UI.style.visibility = "visible";
+    let oldScore = score;
+    gameOver = false;
+    speed = defaultSpeed;
+    GAME_OVER_UI.style.visibility = "hidden";
+    reset();
+    setUpGame();
+    score = oldScore;
+    });
+    }
+
+}
+
+function btnSkip() {
+    Sound.button.sound.play();
+    respawnUsed = false;
+    clearTimeout(gameOverTimeout);
+    REVIVE_UI.style.visibility = "hidden";
+    GAME_OVER_UI.style.visibility = "visible";
+    GO_SCORE.innerHTML = Math.round(score);
+    GO_BESTSCORE.innerHTML = Math.round(bestScore);
+
+    if(Math.round(score)>lbestscore){
+    lbestscore=Math.round(score);
+    laggedHS(lbestscore);
+    }
+}
+
+function btnSound() {
+    Sound.button.sound.play();
+    if (BTN_SOUND.style.opacity == 1){
+        BTN_SOUND.style.opacity = 0.5;
+        Sound.listener.setMasterVolume(0);
+    }
+    else {
+        BTN_SOUND.style.opacity = 1;
+        Sound.listener.setMasterVolume(1);
+    }
+}
+
+/*HELPER FUNCTIONS*/
+function rand(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
+/*CONTROLS*/
+var move = {
+    movementX: null,
+    lastX: null,
+};
+
+function touchStart(event) {
+    let touch = event.changedTouches[0];
+    move.lastX = touch.pageX;
+}
+
+function touchEnd(event) {
+    move.lastX = null;
+    move.movementX = 0;
+}
+
+function touchMoved(event) {
+    let touch = event.changedTouches[0];
+    if (move.lastX){
+        move.movementX = touch.pageX - move.lastX;
+    }
+}
+
+function mouseDown(event) {
+   move.lastX = event.pageX;
+}
+
+function mouseUp(event) {
+    move.lastX = null;
+    move.movementX = 0;
+}
+
+function mouseMoved(event) {
+    if (move.lastX){
+        move.movementX = event.pageX - move.lastX;
+    }
+}
+
+function showLandscapeMessage() {
+    if (onMobile) {
+        if (window.innerWidth > window.innerHeight){
+            ROTATE_MSG.style.visibility = "visible";
+        }
+        else if (ROTATE_MSG.style.visibility == "visible"){
+            ROTATE_MSG.style.visibility = "hidden";
+        }
+    }
+}
+
+function is_touch_device() {
+  try {
+    document.createEvent("TouchEvent");
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+setInterval(function(){
+  adcnt++;
+},999);
+
+</script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="8f33b4ffb033fdfa21c006fe-|49" defer></script></body>
+</html>
