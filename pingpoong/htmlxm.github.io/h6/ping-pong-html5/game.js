@@ -8771,11 +8771,10 @@ ig['module']('plugins.patches.webkit-image-smoothing-patch')['defines'](function
 ig['baked'] = !0x0,
 ig['module']('plugins.patches.windowfocus-onMouseDown-patch')['requires']('impact.input')['defines'](function() {
     var _0x356f60 = !0x1;
-    try {
-        _0x356f60 = window['self'] !== window['top'],
-        !0x1 === _0x356f60 && (_0x356f60 = 0x0 < window['frames']['length']);
+try {
+        _0x356f60 = false;
     } catch (_0x181e3e) {
-        _0x356f60 = !0x0;
+        _0x356f60 = false;
     }
     ig['Input']['inject']({
         'keydown': function(_0x20c107) {
