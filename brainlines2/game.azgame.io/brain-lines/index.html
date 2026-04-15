@@ -87,7 +87,7 @@
     script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
             progressElement.style.width = 100 * progress + "%";
-            progress_text.innerText = "Downloading: " + Math.round(progress*100) + "%";
+            progress_text.innerText = "Downloading The Assets: " + Math.round(progress*100) + "%";
         }).then((unityInstance) => {
             loadingBar.style.display = "none";
             container.style.display = "block";
