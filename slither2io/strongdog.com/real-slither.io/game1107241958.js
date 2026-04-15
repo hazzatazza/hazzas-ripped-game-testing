@@ -1023,7 +1023,7 @@ function connect() {
             sos.sort(function (a, b) { return parseFloat(a.po) - parseFloat(b.po) }); bso = sos[Math.floor(Math.random() *
                 sos.length)]; for (var i = sos.length - 1; i >= 0; i--)if (!sos[i].tainted) if (sos[i].ptm <= bso.ptm) if (sos[i].ac > 20) bso = sos[i]; if (testing) { console.log("bso is selected the old way:"); console.log(bso) }
         }
-    } if (forcing) if (fobso != null) bso = fobso; if (testing) { var es = ""; if (fbso != null) es = "(fbso!)"; console.log("connecting to " + bso.ip + ":" + bso.po + "... " + es) } ws = new WebSocket("ws://" + bso.ip + ":" + bso.po + "/slither"); ws.binaryType = "arraybuffer"; window.ws = ws; ws.onmessage = function (e) {
+    } if (forcing) if (fobso != null) bso = fobso; if (testing) { var es = ""; if (fbso != null) es = "(fbso!)"; console.log("connecting to " + bso.ip + ":" + bso.po + "... " + es) } ws = new WebSocket("wss://" + bso.ip + ":" + bso.po + "/slither"); ws.binaryType = "arraybuffer"; window.ws = ws; ws.onmessage = function (e) {
         if (ws != this) return; var a = new Uint8Array(e.data);
         rdps += a.length; apkps++; if (want_seq) { var seq = a[0] << 8 | a[1]; if (seq - 1 != lseq) if (seq != 0) if (testing) console.log("sequence error! " + seq + " != " + lseq); lseq = seq } else if (want_etm_s) { lptm = cptm; cptm = timeObj.now(); var etm_s = a[0] << 8 | a[1] } var m; var len; if (want_etm_s) m = 2; else m = 0; if (a[m] < 32) { var l = a.length; while (m < l) { if (a[m] < 32) { len = a[m] << 8 | a[m + 1]; m += 2 } else { len = a[m] - 32; m++ } var a2 = a.subarray(m, m + len); m += len; gotPacket(a2) } } else { var a2 = a.subarray(m, a.length); gotPacket(a2) }
     }; window.gotPacket = function (a) {
