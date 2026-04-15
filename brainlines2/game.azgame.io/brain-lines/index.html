@@ -3,61 +3,44 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <!-- Updated path to local CSS -->
-    <link rel="stylesheet" href="../../games.azgame.io/game/brain-lines/25020706/theme/game.css">
+    <!-- Stepping INTO the version folder for CSS -->
+    <link rel="stylesheet" href="25020706/theme/game.css">
     <meta name="robots" content="noindex, nofollow">
     <link href="https://googleapis.com" rel="stylesheet">
     <title>Brain Lines</title>
-    <meta name="description" content=""")/>>
     <style type="text/css">
         .jss1:before {
-            top: 0;
-            width: 100%;
-            filter: blur(16px);
-            height: 100%;
-            content: "";
-            display: block;
-            opacity: .5;
-            z-index: 0;
-            position: absolute;
-            background-size: cover;
-            /* Updated path to local loading image */
-            background-image: url("../../games.azgame.io/game/brain-lines/25020706/loading.png")
+            top: 0; width: 100%; filter: blur(16px); height: 100%;
+            content: ""; display: block; opacity: .5; z-index: 0;
+            position: absolute; background-size: cover;
+            /* Stepping INTO the version folder for background */
+            background-image: url("25020706/loading.png")
         }
     </style> 
      
     <script>
-        var buildUrl = "Build";
         var versionFolder = "25020706/";
-        
-        // POINTING TO LOCAL REPO FOLDER
-        buildUrl = "../../games.azgame.io/game/brain-lines/" + versionFolder + buildUrl;
+        // Path to the Build folder in the OTHER top-level directory
+        var buildUrl = "../../games.azgame.io/game/brain-lines/" + versionFolder + "Build";
         
         var loaderUrl = buildUrl + "/brain-lines-v25020706.loader.js";
         var config = {
             dataUrl: buildUrl + "/brain-lines-v25020706.data.unityweb",
             frameworkUrl: buildUrl + "/brain-lines-v25020706.framework.js.unityweb",
             codeUrl: buildUrl + "/brain-lines-v25020706.wasm.unityweb",
-            streamingAssetsUrl: "../../games.azgame.io/game/brain-lines/" + versionFolder + "StreamingAssets",
+            streamingAssetsUrl: "25020706/StreamingAssets",
             companyName: "azgames.io",
             productName: "Brain Lines",
             productVersion: "25020706",
-            pubId: ""
         };
+
         config.gameId = "brain-lines";
-        config.eventLog = false; // Disabled logging
-        config.buildAPI = ""; 
-        config.enableMoreGame = "no";
-        config.enablePromotion = false;
-        
-        // FORCING DOMAIN CHECK TO FALSE/BYPASS
+        config.eventLog = false;
         config.gdHost = false;
 
-        function isHostOnGD() {
-            return false; 
-        }
+        function isHostOnGD() { return false; }
     </script>
-    <!-- POINTING TO YOUR MODIFIED SDK IN THE LIB FOLDER -->
+    <!-- Stepping OUT to the lib folder in games.azgame.io -->
     <script id="gmsoft-jssdk" src="../../games.azgame.io/lib/gmsoftsdk_v5.js"></script>
 </head>
 
@@ -65,78 +48,50 @@
 <div id="unity-container" style="display: none;">
     <canvas id="unity-canvas"></canvas> 
 </div>
-<div id="loadingBlock" style="">
+<div id="loadingBlock">
     <div class="jss31 jss34 jss1">
-    <div style="position: absolute; font-family: Arial, Helvetica, sans-serif; bottom: 10px; right: 10px; font-size: 18px; color: #ffffff; opacity: 0.5;">25020706</div>
         <div class="spinner"></div>
         <div class="jss31 jss34 jss48" style="flex: 1 1 0%;">
             <div class="jss32">
-                <div class="jss7 jss9 jss20 jss3">
-                    <div class="jss125">
-                        <div class="jss123">
-                         <!-- Updated logo path -->
-                         <img src="../../games.azgame.io/game/brain-lines/25020706/logo.png">
-                        </div>
-                    </div>
+                <div class="jss125">
+                    <div class="jss123"><img src="25020706/logo.png"></div>
                 </div>
             </div>
         </div>
         <div class="jss31 jss34" style="flex: 3 1 0%;">
             <div class="jss32">
                 <div class="jss31 jss34 jss39 jss50 gameloader">
-                    <div class="jss32">
-                        <div class="gameloader-game-name">Brain Lines</div>
+                    <div class="gameloader-game-name">Brain Lines</div>
+                    <div class="gameloader-logo"><img id="game-logo" src="25020706/loading.png"></div>
+                    <div class="gameloader-progressbar">
+                        <div class="gameloader-progressbar-progress" id="progress_fill" style="width: 0%;"></div>
                     </div>
-                    <div class="jss32">
-                        <div class="jss32 gameloader-logo">
-                            <!-- Updated loading image path -->
-                            <img id="game-logo" src="../../games.azgame.io/game/brain-lines/25020706/loading.png">
-                        </div>
-                    </div>
-                    <div class="jss32">
-                        <div>
-                            <div class="gameloader-progressbar">
-                                <div class="gameloader-progressbar-progress" id="progress_fill"
-                                         style="width: 0%;"></div>
-                            </div>
-                            <div class="gameloader-progress-info">Game Loading...</div>
-                        </div>
-                    </div>
+                    <div class="gameloader-progress-info">Game Loading...</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    <script> 
-        var progressElement = document.getElementById('progress_fill');
-        var container = document.getElementById("unity-container");
-        var canvas = document.getElementById("unity-canvas");
-        var loadingBar = document.querySelector("#loadingBlock");
-        var progressBarFull = document.querySelector("#progress_fill");
-        var progress_text = document.querySelector(".gameloader-progress-info");
-        let text_percent = "";
-        var script = document.createElement("script");
-        script.src = loaderUrl;
-        script.onload = () => {
+<script> 
+    var progressElement = document.getElementById('progress_fill');
+    var container = document.getElementById("unity-container");
+    var canvas = document.getElementById("unity-canvas");
+    var loadingBar = document.querySelector("#loadingBlock");
+    var progress_text = document.querySelector(".gameloader-progress-info");
+
+    var script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
             progressElement.style.width = 100 * progress + "%";
-            text_percent = "Downloading file: " + Math.round(progress*100) + "%";
-            progress_text.innerText = text_percent;
-            if (progress >= 99) {
-                progress_text.innerText = "Game Loading ...";
-            }
+            progress_text.innerText = "Downloading: " + Math.round(progress*100) + "%";
         }).then((unityInstance) => {
-            window.unityInstance = unityInstance;
-            setTimeout(function() {
-                loadingBar.style.display = "none";
-                window.focus();
-            }, 2000);
+            loadingBar.style.display = "none";
             container.style.display = "block";
-        }).catch((message) => {
-            console.error(message);
-        });
-        };
-        document.body.appendChild(script);
-    </script>
+            window.focus();
+        }).catch((message) => { console.error(message); });
+    };
+    document.body.appendChild(script);
+</script>
 </body> 
 </html>
