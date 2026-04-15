@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <!-- Path stepping into the local version folder -->
+    <!-- Local styles path -->
     <link rel="stylesheet" href="25020706/theme/game.css">
     <meta name="robots" content="noindex, nofollow">
     <link href="https://googleapis.com" rel="stylesheet">
@@ -16,10 +16,10 @@
             background-image: url("25020706/loading.png")
         }
     </style> 
-     
+    
     <script>
         var versionFolder = "25020706/";
-        // Reaching across to the games.azgame.io directory
+        // Path reaching from /game.azgame.io/brain-lines/ to /games.azgame.io/
         var buildUrl = "../../games.azgame.io/game/brain-lines/" + versionFolder + "Build";
         
         var loaderUrl = buildUrl + "/brain-lines-v25020706.loader.js";
@@ -27,12 +27,12 @@
             dataUrl: buildUrl + "/brain-lines-v25020706.data.unityweb",
             frameworkUrl: buildUrl + "/brain-lines-v25020706.framework.js.unityweb",
             codeUrl: buildUrl + "/brain-lines-v25020706.wasm.unityweb",
-            // CRITICAL: Pointing Unity to where the level data sits
+            // CRITICAL: Updated path for level data to prevent 404 errors
             streamingAssetsUrl: "../../games.azgame.io/game/brain-lines/" + versionFolder + "StreamingAssets",
             companyName: "azgames.io",
             productName: "Brain Lines",
             productVersion: "25020706",
-            // Fix for the JSON parsing error (forces fresh fetch for level data)
+            // Forces fresh data to avoid cached 404 pages causing JSON crashes
             cacheControl: function (url) { return "no-cache"; },
             decompressionFallback: true
         };
@@ -43,7 +43,7 @@
 
         function isHostOnGD() { return false; }
     </script>
-    <!-- ONLY ONE script tag for the SDK to avoid "already declared" error -->
+    <!-- ONLY ONE script tag here. Removed the second one to fix the "already declared" error -->
     <script id="gmsoft-jssdk" src="../../games.azgame.io/lib/gmsoftsdk_v5.js"></script>
 </head>
 
