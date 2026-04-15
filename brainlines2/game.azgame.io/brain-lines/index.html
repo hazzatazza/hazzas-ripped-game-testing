@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <!-- Stepping INTO the version folder for CSS -->
+    <!-- Path stepping into the local version folder -->
     <link rel="stylesheet" href="25020706/theme/game.css">
     <meta name="robots" content="noindex, nofollow">
     <link href="https://googleapis.com" rel="stylesheet">
@@ -13,14 +13,13 @@
             top: 0; width: 100%; filter: blur(16px); height: 100%;
             content: ""; display: block; opacity: .5; z-index: 0;
             position: absolute; background-size: cover;
-            /* Stepping INTO the version folder for background */
             background-image: url("25020706/loading.png")
         }
     </style> 
      
     <script>
         var versionFolder = "25020706/";
-        // Path to the Build folder in the OTHER top-level directory
+        // Reaching across to the games.azgame.io directory
         var buildUrl = "../../games.azgame.io/game/brain-lines/" + versionFolder + "Build";
         
         var loaderUrl = buildUrl + "/brain-lines-v25020706.loader.js";
@@ -28,10 +27,14 @@
             dataUrl: buildUrl + "/brain-lines-v25020706.data.unityweb",
             frameworkUrl: buildUrl + "/brain-lines-v25020706.framework.js.unityweb",
             codeUrl: buildUrl + "/brain-lines-v25020706.wasm.unityweb",
-            streamingAssetsUrl: "25020706/StreamingAssets",
+            // CRITICAL: Pointing Unity to where the level data sits
+            streamingAssetsUrl: "../../games.azgame.io/game/brain-lines/" + versionFolder + "StreamingAssets",
             companyName: "azgames.io",
             productName: "Brain Lines",
             productVersion: "25020706",
+            // Fix for the JSON parsing error (forces fresh fetch for level data)
+            cacheControl: function (url) { return "no-cache"; },
+            decompressionFallback: true
         };
 
         config.gameId = "brain-lines";
@@ -40,7 +43,7 @@
 
         function isHostOnGD() { return false; }
     </script>
-    <!-- Stepping OUT to the lib folder in games.azgame.io -->
+    <!-- ONLY ONE script tag for the SDK to avoid "already declared" error -->
     <script id="gmsoft-jssdk" src="../../games.azgame.io/lib/gmsoftsdk_v5.js"></script>
 </head>
 
