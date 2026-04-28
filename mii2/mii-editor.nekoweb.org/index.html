@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- If you're reading the code, yes I know I used AI, but it was for a good cause, and it's helping me improve more on this kind of stuff. -->
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+	<title>Mii Editor: Create and Edit Mii Characters for your Nintendo Wii&#8482;</title>
+	<link rel="shortcut icon" type="image/x-icon" href="/assets/favicon.ico"/>
+	<link href="/assets/styles.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" language="javascript">AC_FL_RunContent = 0;</script>
+	<script src="/assets/ruffle/AC_RunActiveContent.js" type="text/javascript" language="javascript"></script>
+	<script src="/assets/ruffle/ruffle.js"></script>
+	<script>
+  window.RufflePlayer = window.RufflePlayer || {};
+  window.RufflePlayer.config = {
+    "autoplay": "on", // Sets autoplay to on
+    "unmuteOverlay": "hidden", // Hides the unmute button
+    "wmode": "transparent" // Optional: for transparency
+  };
+</script>
+	<script language="JavaScript">
+	<!--
+	var isTop = true;
+	if(window.self != window.top){
+		isTop = false;
+		open("https://mii-editor.nekoweb.org", "_top");
+	}
+	// -->
+	</script>
+	<script>
+function getMiiFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("mii"); // returns the Mii hex string or null
+}
+</script>
+
+</head>
+<body>
+<!-- END WAYBACK TOOLBAR INSERT -->
+
+<div id="header">
+	<div class="content">
+		<a href="https://mii-editor.nekoweb.org" title="Mii Editor"><img src="/assets/logo.jpg" width="245" height="83" id="title-img"/></a><br/>
+		<p>Create and Edit Mii Characters for your Nintendo Wii&#8482;</p>
+	</div>
+	<div id="nav">
+		<ul class="tabs">
+			<li class="left"><a></a></li>
+			<li><a class="selected" href="https://mii-editor.nekoweb.org">Home</a></li>
+			<li><a href="more.html">More</a></li>
+			<li><a href="faq.html">FAQ</a></li>
+			<li><a href="download.html">Download</a></li>
+			<li class="right"><a></a></li>
+		</ul>
+	</div>
+</div>
+<div id="main-wrapper">
+<div id="main">
+
+	<div class="content">
+		<p class="editor-text">Mii Editor (build 1.0.0.57b)</p>
+		<div class="editor">
+			<div id="flash-container"></div>
+
+<script>
+(function () {
+    const miiData = getMiiFromURL();
+
+    let flashVars = "";
+    if (miiData) {
+        flashVars = "mii=" + encodeURIComponent(miiData);
+    }
+
+    const embed = document.createElement("embed");
+    embed.src = "classicGUI.swf";
+    embed.width = "640";
+    embed.height = "500";
+    embed.setAttribute("play", "true");
+    embed.setAttribute("name", "classicGUI");
+    embed.setAttribute("allowScriptAccess", "always");
+
+    if (flashVars) {
+        embed.setAttribute("flashvars", flashVars);
+    }
+
+    document.getElementById("flash-container").appendChild(embed);
+})();
+const DEFAULT_MII = "000000640065006600610075006c00740042006f0079404080807f5fc242899800044240318028a2088c08401448b88d008a008a25040000000000000000000000000000000000000000";
+
+const miiData = getMiiFromURL() || DEFAULT_MII;
+
+</script>
+		</div>
+		<p class="editor-text"><strong>Load</strong>: <a href="https://mii-editor.nekoweb.org/?mii=000000640065006600610075006c00740042006f0079404080807f5fc242899800044240318028a2088c08401448b88d008a008a25040000000000000000000000000000000000000000">Default Boy</a> | <a href="https://mii-editor.nekoweb.org/?mii=400000640065006600610075006c007400470072006c404080807f73c242899800041840018028a2106c08401448b88d008a008a25040000000000000000000000000000000000000000">Default Girl</a> </p>
+		<h2>Mii Editor</h2>
+		<div class="text">
+			<p>The Mii Editor is an online Mii creator and Mii editor for Nintendo Mii characters.  Miis are character avatars that you can create on your Nintendo Wii entertainment system through the Mii Channel.  This is a version of that same editor that is available to use with your personal computer.</p>
+			<h3>Features:</h3>
+			<ul>
+				<li>Load and save Mii binary files extracted from your Wii remote </li>
+				<li>Load and save XML or edit it directly within the interface</li>
+				<li>Complete control over all Mii properties, even those that can't be changed on the Wii</li>
+				<li>Visual representation of your Mii characters </li>
+				<li>Export your Mii to a JPEG image </li>
+			</ul>
+			<h3>Known Issues.</h3>
+			<p>Adobe Flash player <strong>9.0.28.0</strong> or greater OR <strong>Ruffle</strong> is needed for Mii Editor. <br/>
+		</div>
+		<h2>More Info</h2>
+		<div class="text">
+			<p>Mii Editor was a website made by senocular where you could make, save, and load Mii Characters. Unfortunately, during late 2008, Nintendo pulled the plug to Mii Editor because of legal reasons, and Mii Editor has been gone ever since and has been replaced by My Avatar Editor, which also got taken down around the late 2010s. This website is intended to be a remake of this masterpeice by recreating the website entirely to recreate the experience of Mii Editor, as well as the ability to play it.<br><br>I get that not everything about this website and Mii Editor is the same, but it's the best I could do.</p>
+			<h3>Credits</h3>
+			<p>Credits to senocular for the original site, the Wayback Machine for archiving <a href="https://web.archive.org/web/20080331124254/http://www.miieditor.com/">this website</a>, and <a href="https://rfguy.nekoweb.org">RFGuy</a> for making this site a reality.<br><br>Special thanks to kat21, helloT, EzzyDunez, and Ty! You can visit their websites <a href="/more.html">here</a>.</p>
+		</div>
+		<!-- Use JS
+		<h2>Latest News</h2>
+		<div class="text">
+<hr />
+			<p><br />Read more on the <a href="http://miieditor.blogspot.com">blog</a>.</p>
+
+		</div>
+		-->
+	</div>
+	
+</div>
+</div>
+<div id="footer">
+	<address>
+		<a href="https://web.archive.org/web/20080331124254/http://www.senocular.com/" title="A product of senocular.com">www.senocular.com</a>
+	</address>
+	<div class="text">
+		<p>This website is not affiliated with or endorsed by Nintendo Co. Ltd. or any of its sister branches or subsidiaries globally. Wii is a trademark of Nintendo Co. Ltd. All other patents and trademarks are owned by their respective holders.</p>
+	</div>
+</div>
+
+</body>
+</html><!--
+     FILE ARCHIVED ON 12:42:54 Mar 31, 2008 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:58:20 Dec 14, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.66
+  exclusion.robots: 0.044
+  exclusion.robots.policy: 0.032
+  esindex: 0.009
+  cdx.remote: 12.51
+  LoadShardBlock: 127.218 (3)
+  PetaboxLoader3.datanode: 226.673 (4)
+  PetaboxLoader3.resolve: 228.674 (2)
+  load_resource: 367.043
+  nav: 0.142 (6)
+-->

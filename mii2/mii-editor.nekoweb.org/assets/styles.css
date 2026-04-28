@@ -1,0 +1,263 @@
+html, body, object, embed, noscript {
+	margin:0;
+	padding:0;
+	border:none;
+}
+body {
+	background-color:#FAFAFA;
+	font-family: Arial, Helvetica, sans-serif;
+}
+body, table {
+	font-size: small;
+}
+img {
+	margin:0;
+	border:none;
+}
+a {
+	color:#DE7008;
+}
+a:hover{
+	color:#E09D12;
+}
+h2 {
+	color:#666;
+	padding:3px 0 3px 20px;
+	background:#AAA url(https://mii-editor.nekoweb.org/assets/background_heading.png) repeat-x top left;
+}
+h3 {
+	color:#666;
+	font-size:130%;
+}
+
+
+
+
+.button-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          justify-content: center;
+          margin: 15px auto;
+          padding: 0;
+          list-style: none;
+          width: 650px;
+        }
+.button-row a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+.button-row a img {
+      width: 100px;
+      height: auto;
+      image-rendering: pixelated;
+    }
+/**
+ * <--- Header --------------------------------------------------- >
+ */
+#header {
+	background: white url(https://mii-editor.nekoweb.org/assets/background_header.png) repeat-x top left;
+	height:135px;
+	margin:0;
+	padding:0;
+}
+#header .content {
+	width:800px;
+	margin:0 auto;
+}
+#header p {
+	color:#666;
+	margin:1px 0 0 5px;
+}
+#nav {
+	position:absolute;
+	height:33px;
+	width:592px;
+	top:117px;
+	left:50%;
+	margin:0;
+	margin-left:-296px;
+	padding:0;
+	list-style:none;
+}
+.tabs {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.tabs li {
+	height:33px;
+	width:97px;
+	margin:0;
+	padding:0;
+	text-align:center;
+	float:left;
+}
+.tabs li.left {
+	width:102px;
+	height:33px;
+}
+.tabs li.right {
+	width:102px;
+	height:33px;
+}
+.tabs li a {
+	display:block;
+	height:28px;
+	margin:0;
+	padding:0;
+	padding-top:5px;
+	color:white;
+	text-decoration:none;
+	font-weight:bold;
+	background:white url(https://mii-editor.nekoweb.org/assets/button_nav.png) no-repeat top left;
+}
+.tabs li.left a {
+	padding-left:5px;
+	background:#F9F9F9 url(https://mii-editor.nekoweb.org/assets/button_nav_left.png) no-repeat top left;
+}
+.tabs li.right a {
+	padding-right:5px;
+	background:#F9F9F9 url(https://mii-editor.nekoweb.org/assets/button_nav_right.png) no-repeat top left;
+}
+.tabs li a.selected {
+	background:#F9F9F9 url(https://mii-editor.nekoweb.org/assets/button_nav_over.png) no-repeat top left;
+}
+.tabs li.left a.selected {
+	background:#F9F9F9 url(https://mii-editor.nekoweb.org/assets/button_nav_left_over.png) no-repeat top left;
+}
+.tabs li.right a.selected {
+	background:#F9F9F9 url(https://mii-editor.nekoweb.org/assets/button_nav_right_over.png) no-repeat top left;
+}
+.tabs li a:hover {
+	color:#666;
+}
+.tabs li a.selected {
+	color:black;
+}
+
+/**
+ * <--- Content --------------------------------------------------- >
+ */
+#main-wrapper {
+	width:800px;
+	margin:0 auto;
+	padding:0 7px;
+	background:#E0E0E0 url(https://mii-editor.nekoweb.org/assets/background_content_shadow.png) repeat-y top left;
+}
+#main {
+	padding:1px 0;
+	background:#E0E0E0 url(https://mii-editor.nekoweb.org/assets/background_content_gradient.png) repeat-x top left;
+}
+#main .content {
+	padding-top:30px;
+}
+#main .editor {
+	margin:0 auto;
+	padding:0 0 28px 0;
+	width:640px;
+	height:500px;
+	background:transparent url(https://mii-editor.nekoweb.org/assets/refrection_editor.jpg) no-repeat bottom left;
+}
+#main .editor-text {
+	width:640px;
+	padding:0;
+	margin:0 auto;
+	color:#999;
+	text-align:right;
+}
+#main .text {
+	padding:10px;
+	margin:18px;
+	background-color:white;
+	border:1px solid #999;
+	border-top-color:#CCC;
+	border-left-color:#CCC;
+}
+#index {
+	margin-bottom:4em;
+}
+.index-link {
+	margin-bottom:4em;
+}
+.php {
+	margin-top:3px;
+}
+.google-ad-728x90 {
+	width:728px;
+	height:90px;
+	margin:.5em auto;
+	padding:0;
+}
+.tip {
+	color:#666;
+	font-size:90%;
+	width:600px;
+	margin:0 auto;
+	font-style:italic;
+}
+.EULA {
+	color:#666;
+	font-size:80%;
+	margin-top:2em;
+}
+.badge {
+	width:215px;
+	float:right;
+	margin:0 0 2em 1em;
+	color:#666;
+	font-size:90%;
+}
+
+/**
+ * <--- Footer --------------------------------------------------- >
+ */
+#footer {
+	clear:both;
+	color:#BBB;
+	border-top:1px solid #CCC;
+	background-color:#EFEFEF;
+	font-size:80%;
+	padding:1px 0 4px 0;
+}
+address {
+	text-align:center;
+	font-weight:bold;
+}
+address a {
+	text-decoration:none;
+	color:#BBB;
+}
+address a:hover {
+	text-decoration:underline;
+	color:#05A;
+}
+#footer .text {
+	width:700px;
+	margin:0 auto;
+}
+#footer p {
+	margin:.25em;
+}
+
+/*
+     FILE ARCHIVED ON 06:02:36 Nov 26, 2007 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:04:28 Dec 14, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 1.678
+  exclusion.robots: 0.052
+  exclusion.robots.policy: 0.042
+  esindex: 0.012
+  cdx.remote: 139.774
+  LoadShardBlock: 358.826 (3)
+  PetaboxLoader3.datanode: 995.212 (4)
+  PetaboxLoader3.resolve: 282.068 (2)
+  load_resource: 925.872
+*/

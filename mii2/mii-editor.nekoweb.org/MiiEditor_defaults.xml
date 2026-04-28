@@ -1,0 +1,7 @@
+<defaults>
+	<baseUrl>http://mii-editor.nekoweb.org/</baseUrl>
+	<onlineValidationScript>scripts/connected.php</onlineValidationScript>
+	<uploadScript>scripts/uploadfile.js</uploadScript>
+	<downloadScript>scripts/downloadfile.js</downloadScript>
+	<downloadTarget>_blank</downloadTarget>
+</defaults>
