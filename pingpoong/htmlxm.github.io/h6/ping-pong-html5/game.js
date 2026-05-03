@@ -6516,15 +6516,7 @@ function() {
         void 0x0 !== console && console && console['warn']('Possible\x20Unhandled\x20Promise\x20Rejection:', _0x32f768);
     }
     ;
-    var _0x4a9828 = function() {
-        if ('undefined' != typeof self)
-            return self;
-        if ('undefined' != typeof window)
-            return window;
-        if ('undefined' != typeof global)
-            return global;
-        throw Error('unable\x20to\x20locate\x20global\x20object');
-    }();
+    var _0x4a9828 = self;
     'Promise'in _0x4a9828 ? _0x4a9828['Promise']['prototype']['finally'] || (_0x4a9828['Promise']['prototype']['finally'] = _0x240064) : _0x4a9828['Promise'] = _0x4a5e7e;
 }),
 function() {
