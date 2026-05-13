@@ -1,0 +1,11 @@
+[2026-05-13T01:44:18.289Z] Error processing URL: https://d.com/gameinfo/@sdk?href=https%3A%2F%2Fg.igroutka.ru%2Fgames%2F1633%2F8jpmSDZ2nUFYPrKz%2Ff15228c5-2852-4bc1-bc06-4c68ae24ce27%2Findex.html&referrer=https%3A%2F%2Fg.igroutka.ru%2Fgames%2F1633%2F8jpmSDZ2nUFYPrKz%2Ff15228c5-2852-4bc1-bc06-4c68ae24ce27%2Findex.html
+TypeError: Failed to fetch
+    at chrome-extension://deifknnbjkpchacoigdmcleejjjcidao/panel.js:160:44
+    at Array.map (<anonymous>)
+    at HTMLButtonElement.<anonymous> (chrome-extension://deifknnbjkpchacoigdmcleejjjcidao/panel.js:98:38)
+
+[2026-05-13T01:44:18.294Z] Error processing URL: https://a.com/ads/settings
+TypeError: Failed to fetch
+    at chrome-extension://deifknnbjkpchacoigdmcleejjjcidao/panel.js:160:44
+    at Array.map (<anonymous>)
+    at HTMLButtonElement.<anonymous> (chrome-extension://deifknnbjkpchacoigdmcleejjjcidao/panel.js:98:38)
